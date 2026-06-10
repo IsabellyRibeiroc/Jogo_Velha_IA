@@ -117,9 +117,7 @@ O tabuleiro será exibido no Bitmap Display e as entradas do jogador serão real
 
 Adicione aqui uma captura de tela do jogo:
 
-```md
 ![Jogo da Velha](jogo-da-velha.png)
-```
 
 ---
 
