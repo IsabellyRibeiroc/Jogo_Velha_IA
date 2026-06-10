@@ -1,40 +1,94 @@
-# Jogo da Velha com IA em Assembly
+# Jogo da Velha com IA em MIPS Assembly
 
-## Grupo e Professor 
-Professor: Fernando Ferreira de Carvalho
-Alunos: Pedro Gabriel Paes
-        Isabelly Ribeiro
-        Rubens Sousa
-        João Monte
+## Professor
 
+Fernando Ferreira de Carvalho
 
-## O que a IA faz
+## Integrantes
 
-A CPU joga com `O`. Na fase dificil, ela segue esta prioridade:
+- Pedro Gabriel Paes
+- Isabelly Ribeiro
+- Rubens Sousa
+- João Monte
 
-1. Ganha se houver duas pecas `O` alinhadas e uma casa vazia.
-2. Bloqueia o jogador se houver duas pecas `X` alinhadas e uma casa vazia.
-3. Joga no centro.
-4. Joga nos cantos.
-5. Usa as laterais apenas como fallback quando nao houver centro/canto livre.
+---
 
-## Fases
+## Descrição do Projeto
 
-- Fase 1 - Facil: centro, cantos e laterais.
-- Fase 2 - Medio: bloqueia o jogador, depois centro, cantos e laterais.
-- Fase 3 - Dificil: tenta vencer, bloqueia, joga no centro, depois cantos.
+Este projeto implementa um jogo da velha desenvolvido em **MIPS Assembly** para o simulador **MARS**, utilizando o **Bitmap Display** para exibição gráfica do tabuleiro.
 
-## Arquivos
-- `jogo_velha_ia_mars_bitmap.asm`: versao em MIPS Assembly para MARS com interface grafica no Bitmap Display.
+O jogador utiliza a peça **X** e a CPU utiliza a peça **O**, com três níveis de dificuldade diferentes.
 
-## Entrega no MARS
-Como executar:
+---
 
-1. Abra o MARS.
-2. Clique em `File > Open`.
-3. Selecione `jogo_velha_ia_mars_bitmap.asm`.
-4. Clique em `Tools > Bitmap Display`.
-5. Configure:
+## Funcionamento da IA
+
+Na fase difícil, a CPU segue a seguinte estratégia:
+
+1. Tenta vencer caso existam duas peças `O` alinhadas e uma casa vazia.
+2. Bloqueia o jogador caso existam duas peças `X` alinhadas e uma casa vazia.
+3. Prioriza a posição central.
+4. Prioriza os cantos.
+5. Utiliza as laterais apenas quando não houver outra opção.
+
+---
+
+## Níveis de Dificuldade
+
+### Fase 1 — Fácil
+
+- Centro
+- Cantos
+- Laterais
+
+### Fase 2 — Médio
+
+- Bloqueia o jogador
+- Centro
+- Cantos
+- Laterais
+
+### Fase 3 — Difícil
+
+- Tenta vencer
+- Bloqueia o jogador
+- Centro
+- Cantos
+
+---
+
+## Estrutura do Projeto
+
+```text
+Jogo_Velha_IA
+│
+├── jogo_velha_ia_mars_bitmap.asm
+└── README.md
+```
+
+### Arquivo Principal
+
+- `jogo_velha_ia_mars_bitmap.asm` → Implementação do jogo em MIPS Assembly com interface gráfica utilizando Bitmap Display.
+
+---
+
+## Como Executar no MARS
+
+### 1. Abrir o Projeto
+
+- Abra o MARS
+- Clique em `File > Open`
+- Selecione `jogo_velha_ia_mars_bitmap.asm`
+
+### 2. Configurar o Bitmap Display
+
+Abra:
+
+```text
+Tools > Bitmap Display
+```
+
+Configure:
 
 ```text
 Unit Width in Pixels:        16
@@ -44,26 +98,44 @@ Display Height in Pixels:    512
 Base address for display:    0x10010000 (static data)
 ```
 
-6. Clique em `Connect to MIPS`.
-7. Volte na janela principal do MARS.
-8. Clique em `Assemble`.
-9. Clique em `Run`.
-
-O tabuleiro e as pecas aparecem no Bitmap Display. As entradas de fase e jogada aparecem em janelas do proprio MARS.
-
-## Ver a interface bonita
-
-Abra o arquivo:
+Clique em:
 
 ```text
-interface/index.html
+Connect to MIPS
 ```
 
-Essa versao visual usa a mesma regra de IA das fases, mas o codigo principal do trabalho em Assembly continua em `jogo_velha_ia.asm`.
+### 3. Executar
+
+- Clique em `Assemble`
+- Clique em `Run`
+
+O tabuleiro será exibido no Bitmap Display e as entradas do jogador serão realizadas através das janelas de diálogo do MARS.
+
+---
+
+## Demonstração
+
+Adicione aqui uma captura de tela do jogo:
+
+```md
+![Jogo da Velha](jogo-da-velha.png)
 ```
 
-## Conceitos usados
+---
 
-- Matriz 3x3 representada por vetor linear de 9 posicoes.
-- Verificacao de vitoria por loop em uma tabela com as 8 combinacoes vencedoras.
-- IA por varredura das linhas, contando pecas e casas vazias.
+## Conceitos Utilizados
+
+- MIPS Assembly
+- Estruturas de decisão
+- Estruturas de repetição
+- Manipulação de memória
+- Vetores
+- Inteligência Artificial baseada em regras
+- Interface gráfica com Bitmap Display
+- Verificação de vitória utilizando tabela de combinações
+
+---
+
+## Projeto Acadêmico
+
+Projeto desenvolvido para a disciplina de Arquitetura de Computadores utilizando MIPS Assembly e o simulador MARS.
